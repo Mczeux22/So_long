@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lopapon <lopapon@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:00:01 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/02/19 16:31:25 by Lopapon          ###   ########.fr       */
+/*   Updated: 2025/03/06 19:56:23 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,12 @@ void	ft_print_str(char *str, int *len);
 void	ft_print_percent(void);
 void	ft_pointeur(void *arg, int *len);
 int		ft_putstr(char *str);
+
+// Fonction de GNL
+char	*get_next_line(int fd);
+char	*ft_read_file(int fd, char *res);
+char	*ft_line(char *buffer);
+char	*ft_next_line(char *buffer);
+char	*ft_memory(char *buffer, char *buff);
 
 #endif

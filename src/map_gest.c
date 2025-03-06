@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   map_gest.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 16:30:08 by Lopapon           #+#    #+#             */
-/*   Updated: 2025/03/06 11:20:42 by loicpapon        ###   ########.fr       */
+/*   Created: 2025/03/06 11:22:30 by loicpapon         #+#    #+#             */
+/*   Updated: 2025/03/06 19:29:37 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "header.h"
 
-int	ft_isspace(int c)
+void	ft_countline()
 {
-	if (c == ' ' || (c >= '\t' && c <= '\r'))
-		return (1);
-	else
-		return (0);
+	l; // permet la gestion des lignes de la map
 }
+

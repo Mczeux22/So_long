@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Lopapon <lopapon@student.42perpignan.fr    +#+  +:+       +#+         #
+#    By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 10:20:23 by loicpapon         #+#    #+#              #
-#    Updated: 2025/02/19 16:46:51 by Lopapon          ###   ########.fr        #
+#    Updated: 2025/03/06 19:58:58 by loicpapon        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS		= ft_atoi.c \
               ft_strjoin.c \
               ft_strlcat.c \
               ft_strlcpy.c \
+              ft_strcpy.c  \
               ft_strlen.c \
               ft_strmapi.c \
               ft_strncmp.c \
@@ -62,7 +63,8 @@ SRCS		= ft_atoi.c \
               ft_lstnew_bonus.c \
               ft_lstsize_bonus.c \
               ft_putchar.c \
-              ft_isspace.c
+              ft_isspace.c \
+              get_next_line.c \
 
 OBJS		= ${SRCS:.c=.o}
 NAME		= libft.a
