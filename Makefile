@@ -5,47 +5,53 @@
 #                                                     +:+ +:+         +:+      #
 #    By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/06 11:18:01 by loicpapon         #+#    #+#              #
-#    Updated: 2025/03/19 15:57:59 by loicpapon        ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: Lopapon <lopapon@student.42perpignan.fr    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 10:20:23 by loicpapon         #+#    #+#              #
-#    Updated: 2025/02/19 16:46:51 by Lopapon          ###   ########.fr        #
+#    Updated: 2025/03/21 16:43:20 by loicpapon        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	src/main.c \
-				src/map_gest.c \
-				utils.c \
-				map.c \
-				
+                src/map_gest.c \
+                src/core.c \
+                src/map.c \
+                src/affichage.c \
+                src/check.c
+
 OBJS		= ${SRCS:.c=.o}
 NAME		= so_long
 CC			= gcc
-LIBFT		= 
 CFLAGS		= -Wall -Wextra -Werror
 
-%.o: %.c libft.h
-	${CC} ${CFLAGS} -I. -c $< -o $@
+# Paths to libft and minilibx
+LIBFT_DIR	= libft
+MLX_DIR		= minilibx-linux
+
+# Libraries
+LIBFT		= ${LIBFT_DIR}/libft.a
+MLX			= ${MLX_DIR}/libmlx.a
+
+%.o: %.c
+    ${CC} ${CFLAGS} -I. -I${LIBFT_DIR} -I${MLX_DIR} -c $< -o $@
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+${NAME}: ${LIBFT} ${MLX} ${OBJS}
+    ${CC} ${CFLAGS} ${OBJS} -L${LIBFT_DIR} -lft -L${MLX_DIR} -lmlx -lm -lX11 -lXext -o ${NAME}
+
+${LIBFT}:
+    make -C ${LIBFT_DIR}
+
+${MLX}:
+    make -C ${MLX_DIR}
 
 clean:
-	rm -f ${OBJS}
+    rm -f ${OBJS}
+    make -C ${LIBFT_DIR} clean
+    make -C ${MLX_DIR} clean
 
 fclean: clean
-	rm -f ${NAME}
+    rm -f ${NAME}
+    make -C ${LIBFT_DIR} fclean
 
 re: fclean all
 

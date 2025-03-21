@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/21 14:18:27 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/21 16:39:38 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,9 @@ char	ft_free(t_data *data); //vide la memoire
 int		map_parseur(t_data *data, int fd); //collecte les data
 char	*get_map(int fd); // lecture de la map
 
+//Fonction de deplacement du joueur
+int		keypress(int keycode, t_pos *pos, t_data *data);
+
+//fonctions affichage
 
 #endif
