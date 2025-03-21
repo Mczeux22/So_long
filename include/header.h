@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/06 19:27:37 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/21 13:14:36 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,24 @@ typedef struct img_s
 {
 	// a completer lors de l'ajout des images pour permettre la gestion de la map
 } t_img;
+
+
+//fonction affichage ouverture fermeture de la fenetre
+void	ft_window(t_data *data, int width, int height, char *title);
+int		ft_linux_echap(int keycode, t_data *data);
+int		ft_macos_echap(int keycode, t_data *data);
+int		ft_window_close(t_data *data);
+
+//Fonction verification de validité de la map
+void	collect_check(t_data *data);
+void	exit_check(t_items *data, t_data *datamap);
+void	wall_check(t_items *data, t_data *datamap);
+void	player_check(t_items *data, t_data *datamap);
+void	map_validation(t_data *data);
+
+//Fonction d'initialisation des structures
+void	ft_initialisation(t_items *ini);
+void	ft_setmap(t_data *data);
+
 
 #endif
