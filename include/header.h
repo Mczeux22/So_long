@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/21 13:14:36 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/21 14:18:27 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ void	map_validation(t_data *data);
 //Fonction d'initialisation des structures
 void	ft_initialisation(t_items *ini);
 void	ft_setmap(t_data *data);
+
+//Fonctions de lecture de la map
+char	ft_free(t_data *data); //vide la memoire
+int		map_parseur(t_data *data, int fd); //collecte les data
+char	*get_map(int fd); // lecture de la map
 
 
 #endif
