@@ -6,11 +6,11 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:22:30 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/27 17:28:14 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/27 18:41:03 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "include/header.h"
 
 void	*draw_map(t_data *data)
 {
