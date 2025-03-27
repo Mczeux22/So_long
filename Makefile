@@ -6,16 +6,17 @@
 #    By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 10:20:23 by loicpapon         #+#    #+#              #
-#    Updated: 2025/03/21 16:43:20 by loicpapon        ###   ########.fr        #
+#    Updated: 2025/03/27 18:08:57 by loicpapon        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	src/main.c \
-                src/map_gest.c \
-                src/core.c \
-                src/map.c \
-                src/affichage.c \
-                src/check.c
+SRCS		=	src/affichage.c \
+				src/check.c \
+				src/core.c \
+				src/main.c \
+				src/move.c \
+				src/map.c \
+				src/window_gest.c \
 
 OBJS		= ${SRCS:.c=.o}
 NAME		= so_long
@@ -31,27 +32,27 @@ LIBFT		= ${LIBFT_DIR}/libft.a
 MLX			= ${MLX_DIR}/libmlx.a
 
 %.o: %.c
-    ${CC} ${CFLAGS} -I. -I${LIBFT_DIR} -I${MLX_DIR} -c $< -o $@
+	${CC} ${CFLAGS} -I. -I${LIBFT_DIR} -I${MLX_DIR} -c $< -o $@
 
 all: ${NAME}
 
 ${NAME}: ${LIBFT} ${MLX} ${OBJS}
-    ${CC} ${CFLAGS} ${OBJS} -L${LIBFT_DIR} -lft -L${MLX_DIR} -lmlx -lm -lX11 -lXext -o ${NAME}
+	${CC} ${CFLAGS} ${OBJS} -L${LIBFT_DIR} -lft -L${MLX_DIR} -lmlx -lm -lX11 -lXext -o ${NAME}
 
 ${LIBFT}:
-    make -C ${LIBFT_DIR}
+	make -C ${LIBFT_DIR}
 
 ${MLX}:
-    make -C ${MLX_DIR}
+	make -C ${MLX_DIR}
 
 clean:
-    rm -f ${OBJS}
-    make -C ${LIBFT_DIR} clean
-    make -C ${MLX_DIR} clean
+	rm -f ${OBJS}
+	make -C ${LIBFT_DIR} clean
+	make -C ${MLX_DIR} clean
 
 fclean: clean
-    rm -f ${NAME}
-    make -C ${LIBFT_DIR} fclean
+	rm -f ${NAME}
+	make -C ${LIBFT_DIR} fclean
 
 re: fclean all
 

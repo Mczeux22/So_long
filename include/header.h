@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/21 16:39:38 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/27 18:18:13 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,24 @@ typedef struct items_s
 	int		count_c;
 }	t_items;
 
-typedef struct img_s
+typedef struct s_imgs
 {
-	// a completer lors de l'ajout des images pour permettre la gestion de la map
-} t_img;
+	t_img_xpm	empty;
+	t_img_xpm	player_a1;
+	t_img_xpm	player_a2;
+	t_img_xpm	wall;
+	t_img_xpm	collectible;
+	t_img_xpm	exit;
+}	t_imgs;
+
+typedef struct s_img_data
+{
+	void	*img;
+	char	*data;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}	t_img_data;
 
 
 //fonction affichage ouverture fermeture de la fenetre

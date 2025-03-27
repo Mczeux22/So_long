@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   affichage.c                                        :+:      :+:    :+:   */
+/*   window_gest.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:26:36 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/19 15:36:09 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/27 15:23:51 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,6 @@ int	ft_linux_echap(int keycode, t_data *data)
 	{
 		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
 		exit (0);
-	}
-	return (0);
-}
-
-int	ft_macos_echap(int keycode, t_data *data)
-{
-	if (keycode == 53)
-	{
-		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
-		exit(0);
 	}
 	return (0);
 }
