@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/27 18:18:13 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/03/27 18:42:20 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct data_s
 	char	**map; //permet de stocker en memoire la map
 	t_items	items; // nombre de collectible
 	t_pos	plapos; // position du joueur sur la map
-	t_img	image; // permet l'ajout d'image qu projet
+	//t_img	image; // permet l'ajout d'image qu projet
 }	t_data;
 
 typedef struct pos_s
@@ -47,16 +47,6 @@ typedef struct items_s
 	int		count_e;
 	int		count_c;
 }	t_items;
-
-typedef struct s_imgs
-{
-	t_img_xpm	empty;
-	t_img_xpm	player_a1;
-	t_img_xpm	player_a2;
-	t_img_xpm	wall;
-	t_img_xpm	collectible;
-	t_img_xpm	exit;
-}	t_imgs;
 
 typedef struct s_img_data
 {
