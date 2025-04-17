@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+         #
+#    By: ezeppa <ezeppa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 10:20:23 by loicpapon         #+#    #+#              #
-#    Updated: 2025/03/27 18:08:57 by loicpapon        ###   ########.fr        #
+#    Updated: 2025/03/31 18:36:39 by ezeppa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS		=	src/affichage.c \
 OBJS		= ${SRCS:.c=.o}
 NAME		= so_long
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= 
+# CFLAGS		= -Wall -Wextra -Werror
 
 # Paths to libft and minilibx
 LIBFT_DIR	= libft
@@ -32,7 +33,7 @@ LIBFT		= ${LIBFT_DIR}/libft.a
 MLX			= ${MLX_DIR}/libmlx.a
 
 %.o: %.c
-	${CC} ${CFLAGS} -I. -I${LIBFT_DIR} -I${MLX_DIR} -c $< -o $@
+	${CC} ${CFLAGS} -I. -Iinclude -I${LIBFT_DIR} -I${MLX_DIR} -c $< -o $@
 
 all: ${NAME}
 

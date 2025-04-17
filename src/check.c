@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:11:29 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/21 13:06:38 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/04/17 19:16:42 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,30 +69,31 @@ void	wall_check(t_items *data, t_data *datamap)
 	int	x;
 	int	y;
 
-	y = 0;
+	x = 0;
 	while (x < datamap->width)
 	{
-		if (datamap->map[0][x] != 1 ||
-				datamap->map[datamap->height - 1][x] != '1')
+		if (datamap->map[0][x] != data->wall ||
+				datamap->map[datamap->height - 1][x] != data->wall)
 		{
-			ft_printf("Error wall");
+			ft_printf("Error: check wall %d\n", x);
 			exit(EXIT_FAILURE);
 		}
-		y = 0;
-		while (y > datamap->height)
+		x++;
+	}
+	y = 0;
+	while (y < datamap->height)
+	{
+		if (datamap->map[y][0] != data->wall ||
+				datamap->map[y][datamap->width - 1] != data->wall)
 		{
-        if (datamap->map[y][0] != '1' ||
-				datamap->map[y][datamap->width - 1] != '1')
-			{
-				ft_printf("Map border wrong");
-				exit(EXIT_FAILURE);
-			}
-			y++;
+			ft_printf("Error: Left or right wall is incorrect at row %d\n", y);
+			exit(EXIT_FAILURE);
 		}
+		y++;
 	}
 }
 
-void	player_check(t_items *data, t_data *datamap)
+void	player_check(t_data *data, t_data *datamap)
 {
 	int	x;
 	int	y;
@@ -100,17 +101,25 @@ void	player_check(t_items *data, t_data *datamap)
 
 	y = 0;
 	player_count = 0;
-	while (y < datamap->width)
+	while (y < datamap->height)
 	{
 		x = 0;
-		while (x < datamap->height)
+		while (x < datamap->width)
 		{
-			if (datamap->map[y][x] == data->player)
+			ft_printf("%c", datamap->map[y][x]);
+			// ft_printf("x = %d, y = %d\n", x, y);
+			if (datamap->map[y][x] == data->items.player)
+			{
 				player_count++;
-			if (datamap->map[y][x] == data->wall)
-				exit(ft_printf("Error player on wall"));
+				data->plapos.x = x;
+				data->plapos.y = y;
+				// ft_printf("Player found at (%d, %d)\n", x, y);
+			}
+			// if (datamap->map[y][x] == data->items.wall)
+			// 	exit(ft_printf("Error player on wall"));
 			x++;
 		}
+		ft_printf("\n");
 		y++;
 	}
 	if (player_count == 0 || player_count > 1)
@@ -123,8 +132,11 @@ void	player_check(t_items *data, t_data *datamap)
 void	map_validation(t_data *data)
 {
 	collect_check(data);
+	ft_printf("✅ Collectibles validés avec succès !\n");
 	exit_check(&data->items, data);
+	ft_printf("✅ Sortie validée avec succès !\n");
 	wall_check(&data->items, data);
-	player_check(&data->items, data);
+	ft_printf("✅ Murs validés avec succès !\n");
+	player_check(data, data);
 	ft_printf("✅ Map validée avec succès !\n");
 }

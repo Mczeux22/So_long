@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/03/27 18:42:20 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/04/17 19:12:38 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,6 @@
 # include "libft.h"
 # include "minilibx-linux/mlx.h"
 # include <math.h>
-
-typedef struct data_s
-{
-	void	*mlx_ptr; // fonction minilibx
-	void	*mlx_win; //fonction minilibx
-	int		width; // largeur de la fenetre
-	int		height; // hauteur de la fenetre
-	int		move_count; // permettra de stocker les pas
-	char	**map; //permet de stocker en memoire la map
-	t_items	items; // nombre de collectible
-	t_pos	plapos; // position du joueur sur la map
-	//t_img	image; // permet l'ajout d'image qu projet
-}	t_data;
 
 typedef struct pos_s
 {
@@ -57,6 +44,37 @@ typedef struct s_img_data
 	int		endian;
 }	t_img_data;
 
+typedef struct s_img_xpm
+{
+	void	*img;
+	int		width;
+	int		height;
+}	t_img_xpm;
+
+typedef struct s_imgs
+{
+	t_img_xpm	empty;
+	t_img_xpm	player_a1;
+	t_img_xpm	player_a2;
+	t_img_xpm	wall;
+	t_img_xpm	collectible;
+	t_img_xpm	exit;
+}	t_imgs;
+
+typedef struct data_s
+{
+	void	*mlx_ptr; // fonction minilibx
+	void	*mlx_win; //fonction minilibx
+	int		width; // largeur de la fenetre
+	int		height; // hauteur de la fenetre
+	int		move_count; // permettra de stocker les pas
+	char	**map; //permet de stocker en memoire la map
+	t_items	items; // nombre de collectible
+	t_pos	plapos; // position du joueur sur la map
+	t_imgs	imgs; // permet de stocker les images
+	// t_img_data	image; // permet l'ajout d'image qu projet
+}	t_data;
+
 
 //fonction affichage ouverture fermeture de la fenetre
 void	ft_window(t_data *data, int width, int height, char *title);
@@ -68,7 +86,7 @@ int		ft_window_close(t_data *data);
 void	collect_check(t_data *data);
 void	exit_check(t_items *data, t_data *datamap);
 void	wall_check(t_items *data, t_data *datamap);
-void	player_check(t_items *data, t_data *datamap);
+void	player_check(t_data *data, t_data *datamap);
 void	map_validation(t_data *data);
 
 //Fonction d'initialisation des structures
@@ -81,8 +99,10 @@ int		map_parseur(t_data *data, int fd); //collecte les data
 char	*get_map(int fd); // lecture de la map
 
 //Fonction de deplacement du joueur
-int		keypress(int keycode, t_pos *pos, t_data *data);
+int	keypress(int keycode, t_data *data);
 
 //fonctions affichage
+void	load_images(t_data *data);
+void	draw_map(t_data *data);
 
 #endif
