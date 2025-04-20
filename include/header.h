@@ -6,7 +6,7 @@
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:22 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/04/17 19:12:38 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/04/20 15:21:15 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define HEADER_H
 
 # include "libft.h"
-# include "minilibx-linux/mlx.h"
+# include "libmlx.a"
 # include <math.h>
 
 typedef struct pos_s
