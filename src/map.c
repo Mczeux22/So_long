@@ -59,12 +59,10 @@ int	map_parseur(t_data *data, int fd)
 	map_str = get_map(fd);
 	if (!map_str)
 		return (0);
-
 	data->map = ft_split(map_str, '\n');
 	free(map_str);
 	if (!data->map)
 		return (0);
-
 	y = 0;
 	data->width = 0;
 	while (data->map[y])
