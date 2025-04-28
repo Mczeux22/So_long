@@ -80,7 +80,7 @@ int	init_window(t_maps *m)
 	if (!m->mlx)
 		return (free_param(m), 1);
 	m->win = mlx_new_window(m->mlx, m->largeur * 32,
-			m->hauteur * 32, "Aide Cindy a partir en vacance");
+			m->hauteur * 32, "So_long");
 	if (!m->win)
 		return (free(m->mlx), free_param(m), 1);
 	recup_image(m);
