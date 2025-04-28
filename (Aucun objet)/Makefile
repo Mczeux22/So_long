@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+         #
+#    By: Lopapon <lopapon@student.42perpignan.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 02:11:04 by loicpapon         #+#    #+#              #
-#    Updated: 2025/04/28 02:12:07 by loicpapon        ###   ########.fr        #
+#    Updated: 2025/04/28 01:01:16 by Lopapon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS		= $(SRC_DIR)/do_move.c \
               $(SRC_DIR)/list.c \
               $(SRC_DIR)/main.c \
               $(SRC_DIR)/parsing.c \
-              $(SRC_DIR)/utils.c
+              $(SRC_DIR)/utils.c \
+              $(SRC_DIR)/so_long.c
 
 # Object files
 OBJS		= ${SRCS:.c=.o}
@@ -32,7 +33,7 @@ OBJS		= ${SRCS:.c=.o}
 NAME		= so_long
 
 # Compiler and flags
-CC			= gcc
+CC			= gcc -Wall -Werror -Wextra
 CFLAGS		= -Wall -Wextra -Werror
 
 # Paths to libft and minilibx

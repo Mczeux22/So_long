@@ -19,12 +19,12 @@ int	recup_image(t_maps *m)
 
 	k = 32;
 	j = 32;
-	m->mur = mlx_xpm_file_to_image(m->mlx, "./IMAGES/MUR.xpm", &k, &j);
-	m->sol = mlx_xpm_file_to_image(m->mlx, "./IMAGES/SOL.xpm", &k, &j);
-	m->dol = mlx_xpm_file_to_image(m->mlx, "./IMAGES/DOL.xpm", &k, &j);
-	m->perso = mlx_xpm_file_to_image(m->mlx, "./IMAGES/PERSO.xpm", &k, &j);
-	m->pers2 = mlx_xpm_file_to_image(m->mlx, "./IMAGES/PERSO2.xpm", &k, &j);
-	m->exit = mlx_xpm_file_to_image(m->mlx, "./IMAGES/EXIT.xpm", &k, &j);
+	m->mur = mlx_xpm_file_to_image(m->mlx, "./xpm/wall.xpm", &k, &j);
+	m->sol = mlx_xpm_file_to_image(m->mlx, "./xpm/empty.xpm", &k, &j);
+	m->dol = mlx_xpm_file_to_image(m->mlx, "./xpm/collectible.xpm", &k, &j);
+	m->perso = mlx_xpm_file_to_image(m->mlx, "./xpm/player_a1.xpm", &k, &j);
+	m->pers2 = mlx_xpm_file_to_image(m->mlx, "./xpm/player_a2.xpm", &k, &j);
+	m->exit = mlx_xpm_file_to_image(m->mlx, "./xpm/exit.xpm", &k, &j);
 	if (!m->sol || !m->mur || !m->dol || !m->perso || !m->exit || !m->pers2)
 		return (perror("Erreur chargement image\n"), 1);
 	return (0);
