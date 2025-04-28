@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   found_chemin_exit.c                                :+:      :+:    :+:   */
+/*   found_exit_path.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 02:20:23 by loicpapon         #+#    #+#             */
-/*   Updated: 2025/04/28 02:21:37 by loicpapon        ###   ########.fr       */
+/*   Updated: 2025/04/28 12:39:12 by loicpapon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	verif_chemin_exit(t_maps *m)
+int	verif_exit_path(t_maps *m)
 {
-	if (found_if_chemin_exit(m, m->exit_x, m->exit_y) == 0)
+	if (found_exit(m, m->exit_x, m->exit_y) == 0)
 		return (1);
 	else
 		return (0);
@@ -46,7 +46,7 @@ char	**init_temp_map(t_maps *m)
 	return (copie);
 }
 
-int	found_if_chemin_exit(t_maps *m, int target_x, int target_y)
+int	found_exit(t_maps *m, int target_x, int target_y)
 {
 	char	**map;
 	t_list	*list;

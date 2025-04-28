@@ -6,13 +6,13 @@
 #    By: loicpapon <loicpapon@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 02:11:04 by loicpapon         #+#    #+#              #
-#    Updated: 2025/04/28 03:38:33 by loicpapon        ###   ########.fr        #
+#    Updated: 2025/04/28 12:37:09 by loicpapon        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Source files
 SRC_DIR		= src
-SRCS		= $(SRC_DIR)/do_move.c \
+SRCS		= $(SRC_DIR)/move.c \
               $(SRC_DIR)/found_chemin_exit.c \
               $(SRC_DIR)/found_chemin.c \
               $(SRC_DIR)/game.c \
