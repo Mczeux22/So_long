@@ -26,7 +26,7 @@ CFLAGS		=
 
 # Paths to libft and minilibx
 LIBFT_DIR	= libft
-MLX_DIR		= minilibx-linux
+MLX_DIR		= minilibx-mac-2
 
 # Libraries
 LIBFT		= ${LIBFT_DIR}/libft.a
